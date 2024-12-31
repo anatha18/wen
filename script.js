@@ -163,7 +163,7 @@ if (s === "complete" || s === "loaded" || s === "interactive") init();
 else document.addEventListener("DOMContentLoaded", init, false);
 
 // Timer functionality
-const startDate = new Date(2024, 10, 24, 11, 0, 0);
+const startDate = new Date(2023, 05, 05, 10, 0, 0);
 
 function updateTimer() {
 	const now = new Date();
