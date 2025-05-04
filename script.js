@@ -163,30 +163,30 @@ if (s === "complete" || s === "loaded" || s === "interactive") init();
 else document.addEventListener("DOMContentLoaded", init, false);
 
 // Timer functionality
-const startDate = new Date(2023, 05, 05, 10, 0, 0);
+const startDate = new Date(2023, 04, 05, 10, 0, 0);
+
+function getDayDiff(date1, date2) {
+	const d1 = new Date(date1.getFullYear(), date1.getMonth(), date1.getDate());
+	const d2 = new Date(date2.getFullYear(), date2.getMonth(), date2.getDate());
+	const diffTime = d2 - d1;
+	return Math.floor(diffTime / (1000 * 60 * 60 * 24));
+}
 
 function updateTimer() {
 	const now = new Date();
 	const diff = now - startDate;
 
-	const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-	const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-	const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-	const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+	// Hitung waktu berdasarkan milidetik untuk jam, menit, dan detik
+	const hours = now.getHours();
+	const minutes = now.getMinutes();
+	const seconds = now.getSeconds();
+
+	const days = getDayDiff(startDate, now);
 
 	document.getElementById("days").textContent = String(days).padStart(2, "0");
-	document.getElementById("hours").textContent = String(hours).padStart(
-		2,
-		"0"
-	);
-	document.getElementById("minutes").textContent = String(minutes).padStart(
-		2,
-		"0"
-	);
-	document.getElementById("seconds").textContent = String(seconds).padStart(
-		2,
-		"0"
-	);
+	document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+	document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+	document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
 }
 
 setInterval(updateTimer, 1000);
