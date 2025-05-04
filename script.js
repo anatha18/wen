@@ -163,7 +163,7 @@ if (s === "complete" || s === "loaded" || s === "interactive") init();
 else document.addEventListener("DOMContentLoaded", init, false);
 
 // Timer functionality
-const startDate = new Date(2023, 04, 05, 10, 0, 0);
+const startDate = new Date(2023, 05, 05, 10, 0, 0);
 
 function getDayDiff(date1, date2) {
 	const d1 = new Date(date1.getFullYear(), date1.getMonth(), date1.getDate());
